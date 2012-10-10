@@ -1,0 +1,17 @@
+rails c
+Loading development environment (Rails 3.2.8)
+>> Refinery::Page.first.parts.create! title: "Bann"
+  Refinery::Page Load (0.3ms)  SELECT "refinery_pages".* FROM "refinery_pages" LIMIT 1
+   (0.1ms)  begin transaction
+  Refinery::PagePart::Translation Load (0.2ms)  SELECT "refinery_page_part_translations".* FROM "refinery_page_part_translations" WHERE "refinery_page_part_translations"."refinery_page_part_id" IS NULL AND "refinery_page_part_translations"."locale" = 'en' LIMIT 1
+  SQL (5.4ms)  INSERT INTO "refinery_page_parts" ("body", "created_at", "position", "refinery_page_id", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["body", nil], ["created_at", Wed, 10 Oct 2012 17:52:45 UTC +00:00], ["position", nil], ["refinery_page_id", 1], ["title", "Bann"], ["updated_at", Wed, 10 Oct 2012 17:52:45 UTC +00:00]]
+  SQL (0.3ms)  INSERT INTO "refinery_page_part_translations" ("body", "created_at", "locale", "refinery_page_part_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["body", nil], ["created_at", Wed, 10 Oct 2012 17:52:45 UTC +00:00], ["locale", "en"], ["refinery_page_part_id", 8], ["updated_at", Wed, 10 Oct 2012 17:52:45 UTC +00:00]]
+  Refinery::PagePart::Translation Load (0.1ms)  SELECT "refinery_page_part_translations".* FROM "refinery_page_part_translations" WHERE "refinery_page_part_translations"."id" = ? LIMIT 1  [["id", 8]]
+   (127.8ms)  commit transaction
++----+---------------+-------+------+----------+---------------+---------------+
+| id | refinery_p... | title | body | position | created_at    | updated_at    |
++----+---------------+-------+------+----------+---------------+---------------+
+| 8  | 1             | Bann  |      |          | 2012-10-10... | 2012-10-10... |
++----+---------------+-------+------+----------+---------------+---------------+
+1 row in set
+
