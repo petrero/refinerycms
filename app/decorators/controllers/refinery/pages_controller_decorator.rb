@@ -4,6 +4,6 @@ Refinery::PagesController.class_eval do
 private
 	
 	def authorize
-		render text: "Not Authorized"	
+		# render text: "Not Authorized"	
 	end
 end
